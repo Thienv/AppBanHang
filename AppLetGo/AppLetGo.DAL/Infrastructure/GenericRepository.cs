@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,9 +13,13 @@ namespace AppLetGo.DAL
     {
         private SQLiteConnection db;
 
-        public GenericRepository(SQLiteConnection _db)
+        public GenericRepository(IContext _db)
         {
-            this.db = _db;
+            _db = new DataContext();
+            this.db = _db.GetConnection();
+            _db.InitializeDatabase();
+            
+            
         }
         public void Delete(T entity)
         {
@@ -26,7 +31,7 @@ namespace AppLetGo.DAL
             throw new NotImplementedException();
         }
 
-        public T Get(int id)
+        public T GetById(int id)
         {
             return db.Find<T>(id);
         }
@@ -36,14 +41,11 @@ namespace AppLetGo.DAL
             return db.Find<T>(predicate);
         }
 
-        public List<T> GetAll<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null)
+        public ObservableCollection<T> GetAll()
         {
-            var query = db.Table<T>();
-            if (predicate != null)
-                query = query.Where(predicate);
-            if (orderBy != null)
-                query = query.OrderBy<TValue>(orderBy);
-            return query.ToList();
+            var query = db.Table<T>();            
+            var result = new ObservableCollection<T>(query);
+            return result;
         }
 
         public void Insert(T entity)

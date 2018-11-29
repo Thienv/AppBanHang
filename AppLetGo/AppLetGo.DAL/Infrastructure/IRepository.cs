@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,9 +13,9 @@ namespace AppLetGo.DAL
         void Insert(T entity);
         void Update(T entity);
         void Delete(T entity);
-        List<T> GetAll<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null);
+        ObservableCollection<T> GetAll();
         T Get(Expression<Func<T, bool>> predicate);
-        T Get(int id);
+        T GetById(int id);
         void Save();
 
     }

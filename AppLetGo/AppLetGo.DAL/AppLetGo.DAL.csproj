@@ -58,14 +58,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LetGoContext.cs" />
+    <Compile Include="Context\DataContext.cs" />
+    <Compile Include="Context\IContext.cs" />
+    <Compile Include="Models\Hoa.cs" />
+    <Compile Include="Models\Loaihoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Infrastructure\GenericRepository.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Repositories\HoaRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
