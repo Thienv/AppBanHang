@@ -41,7 +41,7 @@ namespace LetGo.UnitTest
             bool flat = false;
             //call action
             var result = _hoaService.GetHoas() ;
-            if(result.Count() >0)
+            if(result.Count() >0) 
             {
                 flat = true;
             }
@@ -55,12 +55,12 @@ namespace LetGo.UnitTest
         {
             Hoa hoa = new Hoa();
             
-            hoa.Tenhoa = "Hoa Hong";
-            hoa.Mota = "Cay Hoa Hong";
+            hoa.Tenhoa = "Hoa huong duong";
+            hoa.Mota = "la ngay hoa huong duong";
             hoa.Maloai = 1;
             hoa.Mahoa = 1;
             hoa.Hinh = "";
-            hoa.Gia = 10000;
+            hoa.Gia = 5000;
             ;
 
             //_mockHoaRepository.Setup(m => m.Insert(hoa));
