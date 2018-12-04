@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppLetGo.Page2"
-             Title="Đơn hàng" Icon="order.png">
+             Title="Đơn hàng" Icon="C:\Users\Phan Minh Sang\Downloads\baseline-local_mall-black-18\1x">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Setting Page"

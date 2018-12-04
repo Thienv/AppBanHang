@@ -6,7 +6,7 @@
 
     
 
-    <ContentPage Title="Bán Hàng" Icon="./shop.png">
+    <ContentPage Title="Bán Hàng" Icon="../../shop.png">
 
         <ContentPage.Content>
             
