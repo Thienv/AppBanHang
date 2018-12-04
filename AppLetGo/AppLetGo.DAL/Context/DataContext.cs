@@ -10,22 +10,24 @@ namespace AppLetGo.DAL
 {
     public class DataContext : IContext
     {
-        private SQLiteConnection _context;
+        private SQLiteAsyncConnection _context;
         private string _dbPath;
 
         public DataContext()
         {
-            this._dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "DBStore");
-            this._context = new SQLiteConnection(this._dbPath);
+            this._dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "DBStore1");
+            this._context = new SQLiteAsyncConnection(this._dbPath);
         }
-        public SQLiteConnection GetConnection()
+        public SQLiteAsyncConnection GetConnection()
         {
             return this._context;
         }
 
-        public void InitializeDatabase()
+        public async Task InitializeDatabaseAsync()
         {
-            this._context.CreateTable<Hoa>();
+            await this._context.CreateTablesAsync<Loaihoa, Hoa>();
+            
         }
+        
     }
 }

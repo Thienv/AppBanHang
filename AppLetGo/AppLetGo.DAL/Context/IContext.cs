@@ -9,7 +9,7 @@ namespace AppLetGo.DAL
 {
     public interface IContext
     {
-        void InitializeDatabase();
-        SQLiteConnection GetConnection();
+        Task InitializeDatabaseAsync();
+        SQLiteAsyncConnection GetConnection();
     }
 }

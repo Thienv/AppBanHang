@@ -10,12 +10,18 @@ namespace AppLetGo.Business
 {
     public interface IHoaService
     {
-        void Delete(Hoa hoa);
-        ObservableCollection<Hoa> GetHoas();
-        Hoa GetHoasById(int Mahoa);
-        ObservableCollection<Hoa> GetHoasByLoai(int Maloai);
+        Task Delete(int id);
+
         void Insert(Hoa hoa);
+
         void Update(Hoa hoa);
+        Task<List<HoaDto>> GetHoasAsync();
+
+        Task<HoaDto> GetHoasByIdAsync(int Mahoa);
+
+        Task<List<HoaDto>> GetHoasByLoai(int Maloai);
+
+        
     }
     public class HoaService : IHoaService
     {
@@ -25,34 +31,62 @@ namespace AppLetGo.Business
         {
             this._hoaRepository = new HoaRepository(context);
         }
-        public void Delete(Hoa hoa)
+        public async Task Delete(int id)
         {
-            this._hoaRepository.Delete(hoa);
+            await this._hoaRepository.DeleteAsync(id);
         }
 
-        public ObservableCollection<Hoa> GetHoas()
+        public async Task<List<HoaDto>> GetHoasAsync()
         {
-            return this._hoaRepository.GetAll();
+            var result = await this._hoaRepository.GetAll();
+            
+            return result.Select(x => new HoaDto
+            {
+                Gia = x.Gia,
+                Hinh = x.Hinh,
+                Mahoa = x.Mahoa,
+                Maloai = x.Maloai,
+                Mota = x.Mota,
+                Tenhoa = x.Tenhoa
+            }).ToList();
         }
 
-        public Hoa GetHoasById(int Mahoa)
+        public async Task<HoaDto> GetHoasByIdAsync(int Mahoa)
         {
-            return this._hoaRepository.GetById(Mahoa);
-        }
-
-        public ObservableCollection<Hoa> GetHoasByLoai(int Maloai)
-        {
-            throw new NotImplementedException();
-        }
+            var result = await this._hoaRepository.GetByIdAsync(Mahoa);
+            return new HoaDto
+            {
+                Tenhoa = result.Tenhoa,
+                Mota = result.Mota,
+                Maloai = result.Maloai,
+                Gia = result.Gia,
+                Hinh = result.Hinh,
+                Mahoa = result.Mahoa
+            };
+        }        
 
         public void Insert(Hoa hoa)
         {
-            this._hoaRepository.Insert(hoa);
+            this._hoaRepository.InsertAsync(hoa);
         }
 
         public void Update(Hoa hoa)
         {
             this._hoaRepository.Update(hoa);
+        }
+
+        async Task<List<HoaDto>> IHoaService.GetHoasByLoai(int Maloai)
+        {
+            var result = await this._hoaRepository.GetFillterAsync(x => x.Maloai == Maloai);
+            return result.Select(x => new HoaDto
+            {
+                Gia = x.Gia,
+                Hinh =x.Hinh,
+                Mahoa = x.Mahoa,
+                Maloai = x.Maloai,
+                Mota =x.Mota,
+                Tenhoa = x.Tenhoa
+            }).ToList();
         }
     }
 }

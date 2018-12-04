@@ -11,19 +11,29 @@ namespace AppLetGo.DAL
 {
     public class GenericRepository<T> : IRepository<T> where T : class, new()
     {
-        private SQLiteConnection db;
+        private SQLiteAsyncConnection db;
 
         public GenericRepository(IContext _db)
         {
             _db = new DataContext();
             this.db = _db.GetConnection();
-            _db.InitializeDatabase();
+            _db.InitializeDatabaseAsync();
             
             
         }
-        public void Delete(T entity)
+        public async Task<bool> DeleteAsync(int id)
         {
-            db.Delete(entity);
+            try
+            {
+                var entity = await db.FindAsync<T>(id);
+                await db.DeleteAsync(entity);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
 
         public void Dispose()
@@ -31,26 +41,36 @@ namespace AppLetGo.DAL
             throw new NotImplementedException();
         }
 
-        public T GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return db.Find<T>(id);
+            return await db.FindAsync<T>(id);
         }
 
-        public T Get(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> GetFillterAsync(Expression<Func<T, bool>> predicate = null)
         {
-            return db.Find<T>(predicate);
+            var query = db.Table<T>();
+            if (predicate != null)
+                query = query.Where(predicate);
+
+            //if (orderBy != null)
+            //    query = query.OrderBy<TValue>(orderBy);
+            return await query.ToListAsync();
         }
 
-        public ObservableCollection<T> GetAll()
-        {
-            var query = db.Table<T>();            
-            var result = new ObservableCollection<T>(query);
-            return result;
-        }
+        
 
-        public void Insert(T entity)
+        public async Task<bool> InsertAsync(T entity)
         {
-            db.Insert(entity);
+            try
+            {
+                await db.InsertAsync(entity);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+             
         }
 
         public void Save()
@@ -58,9 +78,29 @@ namespace AppLetGo.DAL
             throw new NotImplementedException();
         }
 
-        public void Update(T entity)
+        public async Task<bool> Update(T entity)
         {
-            db.Update(entity);
+            try
+            {
+                await db.UpdateAsync(entity);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
+
+        async Task<IEnumerable<T>> IRepository<T>.GetAll()
+        {
+            var query = db.Table<T>();
+            
+            return await query.ToListAsync();
+        }
+
+        
+
+       
     }
 }
