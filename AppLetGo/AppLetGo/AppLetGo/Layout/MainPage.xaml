@@ -4,16 +4,15 @@
              xmlns:local="clr-namespace:AppLetGo"
              x:Class="AppLetGo.MainPage">
 
-    
 
-    <ContentPage Title="Bán Hàng" Icon="./shop.png">
+
+    <ContentPage Title="Bán Hàng" Icon="AddIcon.png">
 
         <ContentPage.Content>
             
 
 
-            <StackLayout>
-                
+            <StackLayout>               
 
                 <SearchBar x:Name="mySearchBar" 
                            SearchButtonPressed="mySearchBar_SearchButtonPressed" 
@@ -36,7 +35,6 @@
     <local:Page2/>
     <local:Page3/>
     <TabbedPage.ToolbarItems>
-        <ToolbarItem x:Name ="New" Text="New" Icon="menu.png" Clicked="btnNew_Clicked"/>
-
+        <ToolbarItem x:Name ="New" Text="New" Icon="AddIcon.png" Clicked="btnNew_Clicked"/>
     </TabbedPage.ToolbarItems>
 </TabbedPage>
