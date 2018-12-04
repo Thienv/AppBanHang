@@ -9,13 +9,13 @@ namespace AppLetGo.Business
 {
     public interface ILoaiHoaService
     {
-        Task Delete(Loaihoa loaihoa);
+        Task<bool> Delete(int id);
 
-        Task Insert(Loaihoa loaihoa);
+        Task<bool> Insert(Loaihoa loaihoa);
 
-        void Update(Loaihoa loaihoa);
+        Task<bool> Update(Loaihoa loaihoa);
 
-        Task<LoaiHoaDto> GetHoasById(int Mahoa);
+        Task<LoaiHoaDto> GetLoaiHoasById(int Mahoa);
 
         Task<List<LoaiHoaDto>> GetLoaiHoas();
         
@@ -28,14 +28,21 @@ namespace AppLetGo.Business
         {
             this._loaiHoaRepository = new LoaiHoaRepository(context);
         }
-        public Task Delete(Loaihoa loaihoa)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            bool flat = await _loaiHoaRepository.DeleteAsync(id);
+            return flat;
         }
 
-        public Task<LoaiHoaDto> GetHoasById(int Mahoa)
+        public async Task<LoaiHoaDto> GetLoaiHoasById(int maloai)
         {
-            throw new NotImplementedException();
+            var result = await _loaiHoaRepository.GetByIdAsync(maloai);
+            return new LoaiHoaDto
+            {
+                Maloai = result.Maloai,
+                Tenloai = result.Tenloai
+            };
+            
         }
 
         public async Task<List<LoaiHoaDto>> GetLoaiHoas()
@@ -48,13 +55,14 @@ namespace AppLetGo.Business
             }).ToList(); 
         }
 
-        public async Task Insert(Loaihoa loaihoa)
+        public async Task<bool> Insert(Loaihoa loaihoa)
         {
 
-            await Task.Run(() => _loaiHoaRepository.InsertAsync(loaihoa));
+            bool flat = await _loaiHoaRepository.InsertAsync(loaihoa);
+            return flat;
         }
 
-        public void Update(Loaihoa loaihoa)
+        public Task<bool> Update(Loaihoa loaihoa)
         {
             throw new NotImplementedException();
         }

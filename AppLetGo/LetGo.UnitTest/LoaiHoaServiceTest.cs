@@ -26,20 +26,20 @@ namespace LetGo.UnitTest
         {
             var loaihoa = new Loaihoa();
             loaihoa.Maloai = 1;
-            loaihoa.Tenloai = "HoaCuoi";
-           
+            loaihoa.Tenloai = "Hoa Tết";          
             
 
             //_mockHoaRepository.Setup(m => m.Insert(hoa));
 
-            await Task.Run(() => _loaihoaService.Insert(loaihoa));
-
+            bool flat =  await  _loaihoaService.Insert(loaihoa);
+            Assert.IsFalse(!flat, "Insert Sussecfull");
             //Assert.IsNotNull(result);
         }
         [TestMethod]
         public async Task getLoaiHoas()
         {
             var result = await _loaihoaService.GetLoaiHoas();
+            Assert.IsNotNull(result);
         }
     }
 }

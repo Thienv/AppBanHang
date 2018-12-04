@@ -41,12 +41,9 @@ namespace LetGo.UnitTest
             bool flat = true;
             //call action
             var result = await _hoaService.GetHoasAsync() ;
-            if(result.Count() >0)
-            {
-                flat = false;
-            }
+            
             //compare
-            Assert.IsFalse(flat, "1 should not be prime");
+            Assert.IsNotNull(result, "1 should not be prime");
             
         }
         [TestMethod]
@@ -57,7 +54,7 @@ namespace LetGo.UnitTest
             var result = await _hoaService.GetHoasByIdAsync(1);
             
             //compare
-            Assert.IsFalse(flat, "1 should not be prime");
+            Assert.IsNotNull(result, "1 should not be prime");
 
         }
         [TestMethod]
@@ -82,19 +79,24 @@ namespace LetGo.UnitTest
         [TestMethod]
         public async Task DeleteHoaId()
         {
-            await Task.Run(() => _hoaService.Delete(1));
+            bool flat = await _hoaService.Delete(1);
+
+            Assert.IsFalse(flat, "delete sussecfull");
         }
 
-        public async Task UpdateHoaId()
-        {
+        //public async Task UpdateHoaId()
+        //{
             
-            await Task.Run(() => _hoaService.Delete(1));
-        }
+        //   bool flat = await  _hoaService.Update();
+        //    Assert.IsFalse(flat, "delete sussecfull");
+        //}
 
         [TestMethod]
         public async Task GetHoaByLoai()
         {
             var result = await _hoaService.GetHoasByLoai(2);
+
+            Assert.IsNotNull(result);
         }
     }
     
