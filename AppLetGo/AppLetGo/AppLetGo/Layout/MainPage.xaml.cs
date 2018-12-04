@@ -18,7 +18,9 @@ namespace AppLetGo
         public MainPage()
         {
             InitializeComponent();
-            On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            var navigationPage = new NavigationPage(new Page1());
+            navigationPage.Icon = "schedule.png";
+            //On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             myListView.ItemsSource = source;
         }
 

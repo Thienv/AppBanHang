@@ -36,12 +36,12 @@ namespace LetGo.UnitTest
         //    };
         //}
         [TestMethod]
-        public void Hoa_Service_GetAll()
+        public async Task Hoa_Service_GetAllAsync()
         {
             bool flat = true;
             //call action
-            var result = _hoaService.GetHoas() ;
-            if(result.Count() >0) 
+            var result = await _hoaService.GetHoasAsync() ;
+            if(result.Count() >0)
             {
                 flat = false;
             }
@@ -49,28 +49,52 @@ namespace LetGo.UnitTest
             Assert.IsFalse(flat, "1 should not be prime");
             
         }
-
         [TestMethod]
-        public void PostCategory_Service_Create()
+        public async Task Hoa_Service_GetHoaByIdAsync()
+        {
+            bool flat = true;
+            //call action
+            var result = await _hoaService.GetHoasByIdAsync(1);
+            
+            //compare
+            Assert.IsFalse(flat, "1 should not be prime");
+
+        }
+        [TestMethod]
+        public async Task InsetHoaAsync()
         {
             Hoa hoa = new Hoa();
             
-            hoa.Tenhoa = "Hoa Hong";
-            hoa.Mota = "Cay Hoa Hong";
-            hoa.Maloai = 1;
-            hoa.Mahoa = 1;
+            hoa.Tenhoa = "Hoa huong duong mau Xanh";
+            hoa.Mota = "hoa mau vang";
+            hoa.Maloai = 2;
+            hoa.Mahoa = 2;
             hoa.Hinh = "";
-            hoa.Gia = 10000;
+            hoa.Gia = 60000;
             ;
 
             //_mockHoaRepository.Setup(m => m.Insert(hoa));
 
-            _hoaService.Insert(hoa);
+             await Task.Run(()=>_hoaService.Insert(hoa));
              
             //Assert.IsNotNull(result);
-            //Assert.AreEqual(1, result.ID);
+        }
+        [TestMethod]
+        public async Task DeleteHoaId()
+        {
+            await Task.Run(() => _hoaService.Delete(1));
+        }
 
+        public async Task UpdateHoaId()
+        {
+            
+            await Task.Run(() => _hoaService.Delete(1));
+        }
 
+        [TestMethod]
+        public async Task GetHoaByLoai()
+        {
+            var result = await _hoaService.GetHoasByLoai(2);
         }
     }
     

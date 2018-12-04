@@ -21,27 +21,27 @@ namespace AppLetGo.Api.Controllers
         {
             _hoaService = new HoaService();
         }
-        [Route("api/hoas/getall/")]
-        [HttpGet]
-        [ResponseType(typeof(Hoas))]
-        public IHttpActionResult GetAllHoa()
-        {
+        //[Route("api/hoas/getall/")]
+        //[HttpGet]
+        //[ResponseType(typeof(Hoas))]
+        //public async System.Threading.Tasks.Task<IHttpActionResult> GetAllHoaAsync()
+        //{
 
-           var hoas =  this._hoaService.GetHoas().Select(x => new Hoas
-                    {
-                        TenHoa = x.Tenhoa,
-                        MaHoa = x.Mahoa,
-                        Gia =x.Gia,
-                        Hinh = x.Hinh, 
-                        MaLoai = x.Maloai,
-                        MoTa = x.Mota
-                    }).ToList();
-            if (hoas == null)
-            {
-                return NotFound(); // Returns a NotFoundResult
-            }
-            return Ok(hoas);
+        //   var hoas = await this._hoaService.GetHoasAsync().Select(x => new Hoas
+        //            {
+        //                TenHoa = x.Tenhoa,
+        //                MaHoa = x.Mahoa,
+        //                Gia =x.Gia,
+        //                Hinh = x.Hinh, 
+        //                MaLoai = x.Maloai,
+        //                MoTa = x.Mota
+        //            }).ToList();
+        //    if (hoas == null)
+        //    {
+        //        return NotFound(); // Returns a NotFoundResult
+        //    }
+        //    return Ok(hoas);
 
-        }
+        //}
     }
 }

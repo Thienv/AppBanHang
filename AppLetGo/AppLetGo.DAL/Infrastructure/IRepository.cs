@@ -10,12 +10,13 @@ namespace AppLetGo.DAL
 {
     public interface IRepository<T> : IDisposable where T : class, new()
     {
-        void Insert(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-        ObservableCollection<T> GetAll();
-        T Get(Expression<Func<T, bool>> predicate);
-        T GetById(int id);
+        Task<bool> InsertAsync(T entity);
+        Task<bool> Update(T entity);
+        Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<T>> GetAll();
+        Task<IEnumerable<T>> GetFillterAsync(Expression<Func<T, bool>> predicate = null);
+        Task<T> GetByIdAsync(int id);
+        
         void Save();
 
     }

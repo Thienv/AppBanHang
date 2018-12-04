@@ -78,6 +78,7 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Repositories\HoaRepository.cs" />
+    <Compile Include="Repositories\LoaiHoaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
