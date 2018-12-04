@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppLetGo"
+             x:Class="AppLetGo.MainPage">
+
+    
+
+    <ContentPage Title="Bán Hàng" Icon="./shop.png">
+
+        <ContentPage.Content>
+            
+
+
+            <StackLayout>
+                
+
+                <SearchBar x:Name="mySearchBar" 
+                           SearchButtonPressed="mySearchBar_SearchButtonPressed" 
+                           TextChanged="mySearchBar_TextChanged_1"/>
+                <Button Text="Click"  
+                x:Name="btnScan"  
+                Clicked="btnScan_Clicked"/>
+               
+
+                <Entry x:Name="txtBarcode"  
+                Placeholder="Text Do scan"/>
+                <ListView x:Name="myListView"/>
+                <Label x:Name="MainLabel"
+                       />
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <local:Page1/>
+    <local:Page2/>
+    <local:Page3/>
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem x:Name ="New" Text="New" Icon="menu.png" Clicked="btnNew_Clicked"/>
+
+    </TabbedPage.ToolbarItems>
+</TabbedPage>

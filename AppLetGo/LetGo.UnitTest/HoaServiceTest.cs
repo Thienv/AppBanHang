@@ -38,12 +38,12 @@ namespace LetGo.UnitTest
         [TestMethod]
         public void Hoa_Service_GetAll()
         {
-            bool flat = false;
+            bool flat = true;
             //call action
             var result = _hoaService.GetHoas() ;
             if(result.Count() >0)
             {
-                flat = true;
+                flat = false;
             }
             //compare
             Assert.IsFalse(flat, "1 should not be prime");
@@ -55,12 +55,12 @@ namespace LetGo.UnitTest
         {
             Hoa hoa = new Hoa();
             
-            hoa.Tenhoa = "Hoa Hong";
-            hoa.Mota = "Cay Hoa Hong";
-            hoa.Maloai = 1;
-            hoa.Mahoa = 1;
+            hoa.Tenhoa = "Hoa huong duong";
+            hoa.Mota = "hoa mau vang";
+            hoa.Maloai = 2;
+            hoa.Mahoa = 2;
             hoa.Hinh = "";
-            hoa.Gia = 10000;
+            hoa.Gia = 50000;
             ;
 
             //_mockHoaRepository.Setup(m => m.Insert(hoa));
