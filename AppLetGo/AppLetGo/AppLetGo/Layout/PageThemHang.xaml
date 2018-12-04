@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLetGo.PageThemHang">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Thêm hàng hóa" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black" />
+            <Label Text="Tên hàng" TextColor="Black"/>
+            <Entry x:Name="txttenhang"/>
+            <Label Text="Giá vốn" TextColor="Black"/>
+            <Entry x:Name="txtgiavon"/>
+            <Label Text="Giá bán" TextColor="Black"/>
+            <Entry x:Name="txtgiaban"/>
+            <Label Text="Số tồn kho" TextColor="Black"/>
+            <Entry x:Name="txtsotonkho"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

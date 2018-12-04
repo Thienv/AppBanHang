@@ -20,7 +20,7 @@ namespace AppLetGo
             InitializeComponent();
             var navigationPage = new NavigationPage(new Page1());
             navigationPage.Icon = "schedule.png";
-            //On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             myListView.ItemsSource = source;
         }
 
@@ -51,7 +51,17 @@ namespace AppLetGo
             }
         }
 
-        private async void btnScan_Clicked(object sender, EventArgs e)
+        
+
+       
+
+        private void btnNew_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new PageThemHang());
+        }
+
+        private async void btnQRCode_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -67,13 +77,12 @@ namespace AppLetGo
 
                 throw;
             }
+
         }
 
-       
-
-        private void btnNew_Clicked(object sender, EventArgs e)
+        private void btnThanhtoan_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Toolbar", "New button", "OK");
+            Navigation.PushAsync(new PageThanhToan());
         }
     }
 }

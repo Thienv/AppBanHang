@@ -6,7 +6,7 @@
 
 
 
-    <ContentPage Title="Bán Hàng" Icon="AddIcon.png">
+    <ContentPage Title="Bán Hàng" Icon="shop.png">
 
         <ContentPage.Content>
             
@@ -17,16 +17,13 @@
                 <SearchBar x:Name="mySearchBar" 
                            SearchButtonPressed="mySearchBar_SearchButtonPressed" 
                            TextChanged="mySearchBar_TextChanged_1"/>
-                <Button Text="Click"  
-                x:Name="btnScan"  
-                Clicked="btnScan_Clicked"/>
+                
                
 
                 <Entry x:Name="txtBarcode"  
                 Placeholder="Text Do scan"/>
                 <ListView x:Name="myListView"/>
-                <Label x:Name="MainLabel"
-                       />
+                <Button Text="Thanh toán" Clicked="btnThanhtoan_Clicked" />
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
@@ -35,6 +32,8 @@
     <local:Page2/>
     <local:Page3/>
     <TabbedPage.ToolbarItems>
-        <ToolbarItem x:Name ="New" Text="New" Icon="AddIcon.png" Clicked="btnNew_Clicked"/>
+        <ToolbarItem x:Name ="QRCode" Text="QRCode" Icon="qrcode.png" Clicked="btnQRCode_Clicked"/>
+        <ToolbarItem x:Name ="New" Text="New" Icon="add.png" Clicked="btnNew_Clicked"/>
+        
     </TabbedPage.ToolbarItems>
 </TabbedPage>

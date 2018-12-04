@@ -5,9 +5,10 @@
              Title="Thiết lập" Icon="settings.png">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Setting Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Thông tin" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Cài đặt" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Giới thiệu" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Thoát" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
