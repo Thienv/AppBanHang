@@ -92,9 +92,9 @@ namespace AppLetGo.DAL
             
         }
 
-        async Task<IEnumerable<T>> IRepository<T>.GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            var query = db.Table<T>();
+            var query =  db.Table<T>();
             
             return await query.ToListAsync();
         }

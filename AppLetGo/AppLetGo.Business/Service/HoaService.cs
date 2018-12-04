@@ -10,11 +10,11 @@ namespace AppLetGo.Business
 {
     public interface IHoaService
     {
-        Task Delete(int id);
+        Task<bool> Delete(int id);
 
-        void Insert(Hoa hoa);
+        Task<bool> Insert(Hoa hoa);
 
-        void Update(Hoa hoa);
+        Task<bool> Update(Hoa hoa);
         Task<List<HoaDto>> GetHoasAsync();
 
         Task<HoaDto> GetHoasByIdAsync(int Mahoa);
@@ -31,9 +31,9 @@ namespace AppLetGo.Business
         {
             this._hoaRepository = new HoaRepository(context);
         }
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            await this._hoaRepository.DeleteAsync(id);
+            return  await this._hoaRepository.DeleteAsync(id);
         }
 
         public async Task<List<HoaDto>> GetHoasAsync()
@@ -65,14 +65,14 @@ namespace AppLetGo.Business
             };
         }        
 
-        public void Insert(Hoa hoa)
+        public async Task<bool> Insert(Hoa hoa)
         {
-            this._hoaRepository.InsertAsync(hoa);
+            return await this._hoaRepository.InsertAsync(hoa);
         }
 
-        public void Update(Hoa hoa)
+        public async Task<bool> Update(Hoa hoa)
         {
-            this._hoaRepository.Update(hoa);
+           return await this._hoaRepository.Update(hoa);
         }
 
         async Task<List<HoaDto>> IHoaService.GetHoasByLoai(int Maloai)

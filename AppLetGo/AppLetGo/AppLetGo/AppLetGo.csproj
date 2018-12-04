@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AppLetGo.Business\AppLetGo.Business.csproj" />
+    <ProjectReference Include="..\..\AppLetGo.DAL\AppLetGo.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Layout\Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
