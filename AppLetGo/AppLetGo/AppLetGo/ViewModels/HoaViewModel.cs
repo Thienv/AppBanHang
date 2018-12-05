@@ -2,82 +2,83 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using AppLetGo.Business;
 using AppLetGo.DAL;
 
-namespace AppLetGo.ViewModels
+namespace AppLetGo
 {
-    class HoaViewModel: INotifyPropertyChanged
+    public class HoaViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ILoaiHoaRepository loaihoaRepository;
+        private IHoaService HoaService;
 
-        private IHoaRepository hoaRepository;
+        private ILoaiHoaService loaihoaService;
         public void RaisePropertyChanged(string PropertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
-        private Hoa hoa;
-        public Hoa Hoachon
+        private HoaDto hoaDto;
+        public HoaDto Hoachon
         {
-            get { return hoa; }
+            get { return hoaDto; }
             set
             {
-                hoa = value;
+                hoaDto = value;
                 RaisePropertyChanged("Hoachon");
             }
         }
         public int Mahoa
         {
-            get { return hoa.Mahoa; }
+            get { return hoaDto.Mahoa; }
             set
             {
-                hoa.Mahoa = Mahoa;
+                hoaDto.Mahoa = Mahoa;
                 RaisePropertyChanged("Mahoa");
             }
         }
         public int Maloai
         {
-            get { return hoa.Maloai; }
+            get { return hoaDto.Maloai; }
             set
             {
-                hoa.Maloai = value;
+                hoaDto.Maloai = value;
                 RaisePropertyChanged("Maloai");
             }
         }
         public string Tenhoa
         {
-            get { return hoa.Tenhoa; }
+            get { return hoaDto.Tenhoa; }
             set
             {
-                hoa.Tenhoa = value;
+                hoaDto.Tenhoa = value;
                 RaisePropertyChanged("Tenhoa");
             }
         }
         public string Hinh
         {
-            get { return hoa.Hinh; }
+            get { return hoaDto.Hinh; }
             set
             {
-                hoa.Hinh = value;
+                hoaDto.Hinh = value;
                 RaisePropertyChanged("Hinh");
             }
         }
         public string Mota
         {
-            get { return hoa.Mota; }
+            get { return hoaDto.Mota; }
             set
             {
-                hoa.Mota = value;
+                hoaDto.Mota = value;
                 RaisePropertyChanged("Mota");
             }
         }
         public double Gia
         {
-            get { return hoa.Gia; }
+            get { return hoaDto.Gia; }
             set
             {
-                hoa.Gia = value;
+                hoaDto.Gia = value;
                 RaisePropertyChanged("Gia");
             }
         }

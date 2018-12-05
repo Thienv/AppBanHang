@@ -9,9 +9,9 @@ using AppLetGo.Business;
 using AppLetGo.DAL;
 using Xamarin.Forms;
 
-namespace AppLetGo.ViewModels
+namespace AppLetGo
 {
-    class LoaiHoaViewModel : INotifyPropertyChanged
+    public class LoaiHoaViewModel : INotifyPropertyChanged
     {
         private LoaiHoaDto loaihoa;
         ObservableCollection<LoaiHoaDto> loaihoalist;

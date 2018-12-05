@@ -21,34 +21,34 @@ namespace AppLetGo
             var navigationPage = new NavigationPage(new Page1());
             navigationPage.Icon = "schedule.png";
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-            myListView.ItemsSource = source;
+            
         }
 
         private void mySearchBar_SearchButtonPressed(object sender, EventArgs e)
         {
             string searchText = mySearchBar.Text.ToLower();
             IEnumerable<string> result = source.Where(x => x.ToLower().Contains(searchText));
-            if (result.Count() > 0)
-                myListView.ItemsSource = result;
-            else
-                myListView.ItemsSource = new List<string>() { "Khong tim thay..." };
+            //if (result.Count() > 0)
+            //    myListView.ItemsSource = result;
+            //else
+            //    myListView.ItemsSource = new List<string>() { "Khong tim thay..." };
         }
 
 
 
         private void mySearchBar_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrEmpty(e.NewTextValue.ToString()))
-                myListView.ItemsSource = source; // return default
-            else
-            {
-                string searchText = mySearchBar.Text.ToLower();
-                IEnumerable<string> result = source.Where(x => x.ToLower().Contains(searchText));
-                if (result.Count() > 0)
-                    myListView.ItemsSource = result;
-                else
-                    myListView.ItemsSource = new List<string>() { "Not found" };
-            }
+            //if (string.IsNullOrEmpty(e.NewTextValue.ToString()))
+            //    myListView.ItemsSource = source; // return default
+            //else
+            //{
+            //    string searchText = mySearchBar.Text.ToLower();
+            //    IEnumerable<string> result = source.Where(x => x.ToLower().Contains(searchText));
+            //    if (result.Count() > 0)
+            //        myListView.ItemsSource = result;
+            //    else
+            //        myListView.ItemsSource = new List<string>() { "Not found" };
+            //}
         }
 
         
