@@ -29,6 +29,7 @@ namespace AppLetGo.Business
         IContext context;
         public HoaService()
         {
+            context = new DataContext();
             this._hoaRepository = new HoaRepository(context);
         }
         public async Task<bool> Delete(int id)

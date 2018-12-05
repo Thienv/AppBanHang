@@ -18,19 +18,8 @@ namespace AppLetGo.DAL
         
         public DataContext()
         {
-            // this._dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "DBStore");
-
-            //if (IntPtr.Size == 8) // or for .NET4 use Environment.Is64BitProcess
-            //{
-            //    this._dbPath = Path.Combine(this._dbPath, "64");
-            //}
-            //else
-            //{
-            //    this._dbPath = Path.Combine(this._dbPath, "32");
-            //}
-
-            //this._dbPath = Path.Combine(this._dbPath, "System.Data.SQLite.DLL");
-            this._dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "DBStore1");
+            
+            this._dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "DBStore");
             this._context = new SQLiteAsyncConnection(this._dbPath);
         }
         public SQLiteAsyncConnection GetConnection()

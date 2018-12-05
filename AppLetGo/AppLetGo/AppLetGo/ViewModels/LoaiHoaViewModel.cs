@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using AppLetGo.Business;
 using AppLetGo.DAL;
 using Xamarin.Forms;
 
@@ -11,22 +13,22 @@ namespace AppLetGo.ViewModels
 {
     class LoaiHoaViewModel : INotifyPropertyChanged
     {
-        private Loaihoa loaihoa;
-        ObservableCollection<Loaihoa> loaihoalist;
-        public ILoaiHoaRepository loaihoaRepository;
+        private LoaiHoaDto loaihoa;
+        ObservableCollection<LoaiHoaDto> loaihoalist;
+        public LoaiHoaService loaiHoaService;
         public ICommand AddLoaiHoa { get; private set; }
         public ICommand UpdateLoaiHoa { get; private set; }
         public ICommand DeleteLoaiHoa { get; private set; }
         public ICommand SelectLoaihoa { get; private set; }
         public LoaiHoaViewModel()
         {
-            loaihoaRepository = new LoaiHoaRepository();
-            LoadLoaihoa();
-            AddLoaiHoa = new Command(Insert);
-            UpdateLoaiHoa = new Command(Update, CanExe);
-            DeleteLoaiHoa = new Command(Delete, CanExe);
+            loaiHoaService = new LoaiHoaService();
+            Task.Run(() => LoadLoaihoaAsync()); 
+            AddLoaiHoa = new Command(async () => await Insert());
+            UpdateLoaiHoa = new Command(async () => await Update(), CanExe);
+            DeleteLoaiHoa = new Command(async () => await Delete(), CanExe);
             SelectLoaihoa = new Command(ChonLoaiHoa);
-            loaihoa = new Loaihoa();
+            loaihoa = new LoaiHoaDto();
         }
 
         private void ChonLoaiHoa()
@@ -34,10 +36,10 @@ namespace AppLetGo.ViewModels
 
         }
 
-        private void Delete()
+        private async Task Delete()
         {
-            loaihoaRepository.DeleteAsync(loaihoa.Maloai);
-            LoadLoaihoa();
+            await loaiHoaService.Delete(loaihoa.Maloai);
+            await LoadLoaihoaAsync();
         }
 
         private bool CanExe()
@@ -48,13 +50,13 @@ namespace AppLetGo.ViewModels
                 return true;
         }
        
-        private void Update()
+        private async Task Update()
         {
-            loaihoaRepository.Update(Loaihoa);
-            LoadLoaihoa();
+            await loaiHoaService.Update(Loaihoa);
+            await LoadLoaihoaAsync();
         }
 
-        public Loaihoa Loaihoa
+        public LoaiHoaDto Loaihoa
         {
             get { return loaihoa; }
             set
@@ -65,10 +67,10 @@ namespace AppLetGo.ViewModels
 
             }
         }
-        private void Insert()
+        private async Task Insert()
         {
-            loaihoaRepository.InsertAsync(loaihoa);
-            LoadLoaihoa();
+            await loaiHoaService.Insert(loaihoa);
+            await LoadLoaihoaAsync();
         }
 
         public int ID
@@ -91,7 +93,7 @@ namespace AppLetGo.ViewModels
         }
 
 
-        public ObservableCollection<Loaihoa> Loaihoalist
+        public ObservableCollection<LoaiHoaDto> Loaihoalist
         {
             get { return loaihoalist; }
             set
@@ -100,9 +102,11 @@ namespace AppLetGo.ViewModels
                 RaisePropertyChanged("Loaihoalist");
             }
         }
-        void LoadLoaihoa()
+        public async Task LoadLoaihoaAsync()
         {
-            Loaihoalist = loaihoaRepository.GetAll();
+            var result = await loaiHoaService.GetLoaiHoas();
+            Loaihoalist = new ObservableCollection<LoaiHoaDto>(result);
+            
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void RaisePropertyChanged(string PropertyName)

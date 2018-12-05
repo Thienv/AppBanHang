@@ -11,9 +11,9 @@ namespace AppLetGo.Business
     {
         Task<bool> Delete(int id);
 
-        Task<bool> Insert(Loaihoa loaihoa);
+        Task<bool> Insert(LoaiHoaDto loaihoa);
 
-        Task<bool> Update(Loaihoa loaihoa);
+        Task<bool> Update(LoaiHoaDto loaihoa);
 
         Task<LoaiHoaDto> GetLoaiHoasById(int Mahoa);
 
@@ -55,14 +55,17 @@ namespace AppLetGo.Business
             }).ToList(); 
         }
 
-        public async Task<bool> Insert(Loaihoa loaihoa)
+        public async Task<bool> Insert(LoaiHoaDto loaihoa)
         {
 
-            bool flat = await _loaiHoaRepository.InsertAsync(loaihoa);
+            bool flat = await _loaiHoaRepository.InsertAsync(new Loaihoa {
+                Maloai = loaihoa.Maloai,
+                Tenloai = loaihoa.Tenloai
+            });
             return flat;
         }
 
-        public Task<bool> Update(Loaihoa loaihoa)
+        public Task<bool> Update(LoaiHoaDto loaihoa)
         {
             throw new NotImplementedException();
         }
