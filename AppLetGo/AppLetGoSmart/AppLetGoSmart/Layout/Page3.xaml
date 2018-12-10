@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLetGo.Page3"
+             Title="Thiết lập" Icon="settings.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Thông tin" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Cài đặt" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Giới thiệu" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="Thoát" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

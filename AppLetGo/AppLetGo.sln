@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetGo.UnitTest", "LetGo.Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLetGo.Api", "AppLetGo.Api\AppLetGo.Api.csproj", "{3CD80C92-AE48-48B0-BC34-388FC68D5B70}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppLetGoProject", "AppLetGoProject", "{5E1A7605-9BF1-4F99-84EB-260D981FBC7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -530,6 +532,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7D93696-EFBC-4770-9A7B-E52965BC8992} = {5E1A7605-9BF1-4F99-84EB-260D981FBC7C}
+		{5382316A-255B-478D-89ED-5B036B37DDF5} = {5E1A7605-9BF1-4F99-84EB-260D981FBC7C}
+		{00850E7F-0616-4C76-99C6-2942074D30F5} = {5E1A7605-9BF1-4F99-84EB-260D981FBC7C}
+		{8A8927E8-F9A1-4964-951D-4AC9CE9ECC0B} = {5E1A7605-9BF1-4F99-84EB-260D981FBC7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5125C01-294D-48F6-BDCC-12F06332AE54}
