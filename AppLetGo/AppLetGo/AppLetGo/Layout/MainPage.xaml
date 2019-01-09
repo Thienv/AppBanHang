@@ -1,25 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:AppLetGo"
-             x:Class="AppLetGo.MainPage">
-    
+             xmlns:local="clr-namespace:AppLetGo.ViewModels"
+            xmlns:local1="clr-namespace:AppLetGo.Layout"
+            x:Class="AppLetGo.MainPage">
+    <TabbedPage.BindingContext>
+        <local:LoaiHoaViewModel/>
+    </TabbedPage.BindingContext>
 
 
     <ContentPage Title="Bán Hàng" Icon="shop.png">
         
         <ContentPage.Content>
             <StackLayout>
+                <Picker ItemsSource="{Binding LoaiHoaList}"
+                        SelectedItem="{Binding Loaihoam, Mode=TwoWay}"/>
                 <SearchBar x:Name="mySearchBar" 
                            SearchButtonPressed="mySearchBar_SearchButtonPressed" 
                            TextChanged="mySearchBar_TextChanged_1"/>
-                <Entry x:Name="txtBarcode"  
-                Placeholder="Text Do scan"/>
-
-                <ListView ItemsSource="{Binding  DSHoa}" SelectedItem="{Binding Hoamoi, Mode=TwoWay}">
+                    <ListView ItemsSource="{Binding  HoaList}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ImageCell ImageSource="{Binding Hinh}" Text="{Binding Tenhoa}"/>
+                                <ImageCell Text="{Binding HoaTheoLoai}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -28,12 +30,11 @@
         </ContentPage.Content>
     </ContentPage>
 
-    <local:Page1/>
-    <local:Page2/>
-    <local:Page3/>
+    <local1:ReportPage/>
+    <local1:OrderPage/>
+    <local1:SettingPage/>
     <TabbedPage.ToolbarItems>
         <ToolbarItem x:Name ="QRCode" Text="QRCode" Icon="qrcode.png" Clicked="btnQRCode_Clicked"/>
         <ToolbarItem x:Name ="New" Text="New" Icon="add.png" Clicked="btnNew_Clicked"/>
-        
     </TabbedPage.ToolbarItems>
 </TabbedPage>

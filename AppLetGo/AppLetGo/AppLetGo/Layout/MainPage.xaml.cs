@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppLetGo.Layout;
 using AppLetGo.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -18,7 +19,7 @@ namespace AppLetGo
         public MainPage()
         {
             InitializeComponent();
-            var navigationPage = new NavigationPage(new Page1());
+            var navigationPage = new NavigationPage(new ReportPage());
             navigationPage.Icon = "schedule.png";
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             
@@ -61,24 +62,24 @@ namespace AppLetGo
             Navigation.PushAsync(new PageThemHang());
         }
 
-        private async void btnQRCode_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                IQrScanningService scanner = DependencyService.Get<IQrScanningService>();
-                var result = await scanner.ScanAsync();
-                if (result != null)
-                {
-                    txtBarcode.Text = result;
-                }
-            }
-            catch (Exception ex)
-            {
+        //private async void btnQRCode_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        IQrScanningService scanner = DependencyService.Get<IQrScanningService>();
+        //        var result = await scanner.ScanAsync();
+        //        if (result != null)
+        //        {
+        //            txtBarcode.Text = result;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
 
-        }
+        //}
 
         private void btnThanhtoan_Clicked(object sender, EventArgs e)
         {
