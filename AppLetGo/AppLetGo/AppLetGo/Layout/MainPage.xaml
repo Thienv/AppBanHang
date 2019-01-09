@@ -7,9 +7,7 @@
 
 
     <ContentPage Title="Bán Hàng" Icon="shop.png">
-        <ContentPage.BindingContext>
-            <local:ThemHoaViewModel/>
-        </ContentPage.BindingContext>
+        
         <ContentPage.Content>
             <StackLayout>
                 <SearchBar x:Name="mySearchBar" 
