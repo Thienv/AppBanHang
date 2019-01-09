@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:AppLetGo.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
             xmlns:local1="clr-namespace:AppLetGo.Layout"
+            xmlns:local="clr-namespace:AppLetGo.ViewModels"
             x:Class="AppLetGo.MainPage">
     <TabbedPage.BindingContext>
         <local:LoaiHoaViewModel/>
@@ -14,14 +14,14 @@
         <ContentPage.Content>
             <StackLayout>
                 <Picker ItemsSource="{Binding LoaiHoaList}"
-                        SelectedItem="{Binding Loaihoam, Mode=TwoWay}"/>
+                        SelectedItem="{Binding LoaihoaChon, Mode=TwoWay}" ItemDisplayBinding="{Binding Tenloai}"/>
                 <SearchBar x:Name="mySearchBar" 
                            SearchButtonPressed="mySearchBar_SearchButtonPressed" 
                            TextChanged="mySearchBar_TextChanged_1"/>
-                    <ListView ItemsSource="{Binding  HoaList}">
+                <ListView ItemsSource="{Binding  HoaTheoLoai}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                                <ImageCell Text="{Binding HoaTheoLoai}"/>
+                                <ImageCell Text="{Binding Tenhoa , Mode=TwoWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -34,7 +34,7 @@
     <local1:OrderPage/>
     <local1:SettingPage/>
     <TabbedPage.ToolbarItems>
-        <ToolbarItem x:Name ="QRCode" Text="QRCode" Icon="qrcode.png" Clicked="btnQRCode_Clicked"/>
+        <ToolbarItem x:Name ="QRCode" Text="QRCode" Icon="qrcode.png" />
         <ToolbarItem x:Name ="New" Text="New" Icon="add.png" Clicked="btnNew_Clicked"/>
     </TabbedPage.ToolbarItems>
 </TabbedPage>

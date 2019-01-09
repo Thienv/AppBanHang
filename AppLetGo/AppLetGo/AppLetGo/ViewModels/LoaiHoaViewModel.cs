@@ -126,14 +126,7 @@ namespace AppLetGo.ViewModels
                 }
             else
                 HoaTheoLoai = HoaList;
-        }
-        //private bool CanExe()
-        //{
-        //    if (Loaihoa == null || Loaihoa.Maloai == 0)
-        //        return false;
-        //    else
-        //        return true;
-        //}
+        }        
         public int ID
         {
             get { return loaihoa.Maloai; }
@@ -143,7 +136,13 @@ namespace AppLetGo.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        //private bool CanExe()
+        //{
+        //    if (Loaihoa == null || Loaihoa.Maloai == 0)
+        //        return false;
+        //    else
+        //        return true;
+        //}
     }
 }
-}
+
