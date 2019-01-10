@@ -6,7 +6,7 @@ namespace AppLetGo.Models
 {
     public class LoaiHoa
     {
-        public int MaLoai { get; set; }
-        public string TenLoai { get; set; }
+        public int Maloai { get; set; }
+        public string Tenloai { get; set; }
     }
 }
