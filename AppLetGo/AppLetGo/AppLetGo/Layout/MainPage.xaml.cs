@@ -19,8 +19,8 @@ namespace AppLetGo
         public MainPage()
         {
             InitializeComponent();
-            var navigationPage = new NavigationPage(new Page1());
-            navigationPage.Icon = "schedule.png";
+            //var navigationPage = new NavigationPage(new Page1());
+            //navigationPage.Icon = "schedule.png";
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             
             
@@ -72,7 +72,7 @@ namespace AppLetGo
                 var result = await scanner.ScanAsync();
                 if (result != null)
                 {
-                    txtBarcode.Text = result;
+                    //txtBarcode.Text = result;
                 }
             }
             catch (Exception ex)

@@ -1,4 +1,7 @@
-﻿namespace AppLetGo.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+namespace AppLetGo.Models
 {
     public class Hoa
     {
