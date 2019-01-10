@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppLetGo.API;
 using AppLetGo.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -22,6 +23,8 @@ namespace AppLetGo
             navigationPage.Icon = "schedule.png";
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             
+            
+
         }
 
         private void mySearchBar_SearchButtonPressed(object sender, EventArgs e)
@@ -82,7 +85,11 @@ namespace AppLetGo
 
         private void btnThanhtoan_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageThanhToan());
+            //Navigation.PushAsync(new PageThanhToan());
+
+            Device.BeginInvokeOnMainThread(async () => {
+                var Items = await databaseservice.RefreshDataAsync();
+            });
         }
     }
 }
