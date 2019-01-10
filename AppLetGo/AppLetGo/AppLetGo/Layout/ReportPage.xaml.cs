@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppLetGo
+namespace AppLetGo.Layout
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page3 : ContentPage
+    public partial class ReportPage : ContentPage
     {
-        public Page3()
+        public ReportPage()
         {
             InitializeComponent();
         }

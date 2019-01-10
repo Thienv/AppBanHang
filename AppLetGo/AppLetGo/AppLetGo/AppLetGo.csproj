@@ -11,11 +11,8 @@
 
   <ItemGroup>
     <Compile Remove="ApiServices\**" />
-    <Compile Remove="ViewModels\**" />
     <EmbeddedResource Remove="ApiServices\**" />
-    <EmbeddedResource Remove="ViewModels\**" />
     <None Remove="ApiServices\**" />
-    <None Remove="ViewModels\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,25 +22,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Layout\Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Layout\Page1.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Layout\Page2.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Layout\Page3.xaml">
+    <EmbeddedResource Update="Layout\OrderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Layout\PageThemHang.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Layout\PageThanhToan.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Layout\ReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Layout\SettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
