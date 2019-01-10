@@ -18,7 +18,7 @@
                 <SearchBar x:Name="mySearchBar" 
                            SearchButtonPressed="mySearchBar_SearchButtonPressed" 
                            TextChanged="mySearchBar_TextChanged_1"/>
-                <ListView ItemsSource="{Binding  HoaTheoLoai}">
+                <ListView ItemsSource="{Binding  HoaTheoLoai}" x:Name="MyListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                                 <ImageCell Text="{Binding Tenhoa , Mode=TwoWay}"/>

@@ -37,16 +37,16 @@ namespace AppLetGo.ViewModels
             LoaiHoaList.Add(e);
 
 
-            Hoa s1 = new Hoa() { Mahoa = 1, Maloai = 1, Tenhoa = "aaaaaaaa" };
-            Hoa s2 = new Hoa() { Mahoa = 2, Maloai = 1, Tenhoa = "bbbbbbb" };
-            Hoa s3 = new Hoa() { Mahoa = 3, Maloai = 2, Tenhoa = "cccccccccc" };
-            Hoa s4 = new Hoa() { Mahoa = 4, Maloai = 2, Tenhoa = "dddddddd" };
-            Hoa s5 = new Hoa() { Mahoa = 5, Maloai = 3, Tenhoa = "eeeeeee" };
-            Hoa s6 = new Hoa() { Mahoa = 6, Maloai = 3, Tenhoa = "afffffffa" };
-            Hoa s7 = new Hoa() { Mahoa = 7, Maloai = 4, Tenhoa = "aggggggg" };
-            Hoa s8 = new Hoa() { Mahoa = 8, Maloai = 4, Tenhoa = "hhhhhhhhhh" };
-            Hoa s9 = new Hoa() { Mahoa = 9, Maloai = 5, Tenhoa = "aiiiiiiiiii" };
-            Hoa s10 = new Hoa() { Mahoa = 10, Maloai = 5, Tenhoa = "ajjjjjjjjjjjjjjjj" };
+            Hoa s1 = new Hoa() { Mahoa = 1, Maloai = 1, Tenhoa = "gia1" };
+            Hoa s2 = new Hoa() { Mahoa = 2, Maloai = 1, Tenhoa = "gia2" };
+            Hoa s3 = new Hoa() { Mahoa = 3, Maloai = 2, Tenhoa = "cuoi1" };
+            Hoa s4 = new Hoa() { Mahoa = 4, Maloai = 2, Tenhoa = "cuoi2" };
+            Hoa s5 = new Hoa() { Mahoa = 5, Maloai = 3, Tenhoa = "hong1" };
+            Hoa s6 = new Hoa() { Mahoa = 6, Maloai = 3, Tenhoa = "hong2" };
+            Hoa s7 = new Hoa() { Mahoa = 7, Maloai = 4, Tenhoa = "lan1" };
+            Hoa s8 = new Hoa() { Mahoa = 8, Maloai = 4, Tenhoa = "lan2" };
+            Hoa s9 = new Hoa() { Mahoa = 9, Maloai = 5, Tenhoa = "cuc1" };
+            Hoa s10 = new Hoa() { Mahoa = 10, Maloai = 5, Tenhoa = "cuc2" };
 
             HoaList.Add(s1);
             HoaList.Add(s2);
