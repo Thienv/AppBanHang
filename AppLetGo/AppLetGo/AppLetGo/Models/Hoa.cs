@@ -6,6 +6,7 @@ namespace AppLetGo.Models
     public class Hoa
     {
         
+
         public int Mahoa { get; set; }
         public int Maloai { get; set; }
         public string Tenhoa { get; set; }

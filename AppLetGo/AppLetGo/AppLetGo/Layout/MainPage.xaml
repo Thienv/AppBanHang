@@ -14,14 +14,13 @@
         <ContentPage.Content>
             <StackLayout>
                 <Picker ItemsSource="{Binding LoaiHoaList}"
-                        SelectedItem="{Binding LoaihoaChon, Mode=TwoWay}" ItemDisplayBinding="{Binding Tenloai}"/>
-                <SearchBar x:Name="mySearchBar" 
-                           SearchButtonPressed="mySearchBar_SearchButtonPressed" 
-                           TextChanged="mySearchBar_TextChanged_1"/>
-                <ListView ItemsSource="{Binding  HoaTheoLoai}" x:Name="MyListView">
+                        SelectedItem="{Binding LoaihoaChon, Mode=TwoWay}" ItemDisplayBinding="{Binding Tenloai}" Title="Tất cả hàng"/>
+                <SearchBar x:Name="mySearchBar"                           
+                           TextChanged="mySearchBar_TextChanged_1" Placeholder="Nhập tên, mã để tìm hàng"/>
+                <ListView ItemsSource="{Binding  HoaTheoLoai, Mode=TwoWay}" x:Name="MyListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                                <ImageCell Text="{Binding Tenhoa , Mode=TwoWay}"/>
+                            <ImageCell Text="{Binding Tenhoa , Mode=TwoWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

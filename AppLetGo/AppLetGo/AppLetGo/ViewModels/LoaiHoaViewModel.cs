@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace AppLetGo.ViewModels
 {
@@ -13,11 +15,15 @@ namespace AppLetGo.ViewModels
         private ObservableCollection<LoaiHoa> _loaiHoaList;
         private ObservableCollection<Hoa> _hoaList;
         private ObservableCollection<Hoa> _hoaTheoLoai;
+        private ObservableCollection<Hoa> temp = new ObservableCollection<Hoa>();
+        
+        //public ICommand AddLoaiHoa { get; private set; }
 
         public LoaiHoaViewModel()
         {
             loaihoa = new LoaiHoa();
             hoa = new Hoa();
+            //AddLoaiHoa = new Command(Insert);
             // du lieu gia
             LoaiHoaList = new ObservableCollection<LoaiHoa>();
             HoaList = new ObservableCollection<Hoa>();
@@ -62,6 +68,19 @@ namespace AppLetGo.ViewModels
             // het du lieu gia
 
 
+        }
+        public void Insert(Hoa h)
+        {
+            
+            HoaList.Add(h);
+            HoaTheoLoai = HoaList;
+        }
+
+        private void Load()
+        {
+            //temp = new ObservableCollection<Hoa>();
+            //temp = HoaList;
+            HoaTheoLoai = HoaList;
         }
         public ObservableCollection<Hoa> HoaTheoLoai
         {
