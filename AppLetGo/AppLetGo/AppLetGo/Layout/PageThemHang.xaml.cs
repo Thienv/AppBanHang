@@ -2,6 +2,7 @@
 using AppLetGo.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace AppLetGo
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageThemHang : ContentPage
     {
+        public ObservableCollection<Hoa> vm { get; set; }
         public PageThemHang()
         {
             InitializeComponent();
@@ -29,8 +31,7 @@ namespace AppLetGo
             double g = double.Parse(txtgiaban.Text);
 
             Hoa h = new Hoa { Mahoa = a, Maloai = b, Tenhoa = c, Hinh = d, Mota = f, Gia = g };
-            var vm = BindingContext as LoaiHoaViewModel;
-            vm.Insert(h);
+            vm.Add(h);
             DisplayAlert("Alert", "Them hang thanh cong","OK");
         }
     }

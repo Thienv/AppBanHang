@@ -24,7 +24,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Thanh toán" Clicked="btnThanhtoan_Clicked" />
+                <Button Text="Thanh toán" Clicked="btnThanhtoan_Clicked"  Command="{Binding }"/>
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>

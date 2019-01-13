@@ -23,7 +23,7 @@ namespace AppLetGo.ViewModels
         {
             loaihoa = new LoaiHoa();
             hoa = new Hoa();
-            //AddLoaiHoa = new Command(Insert);
+           // AddHoa = new Command(Insert(Hoa h));
             // du lieu gia
             LoaiHoaList = new ObservableCollection<LoaiHoa>();
             HoaList = new ObservableCollection<Hoa>();

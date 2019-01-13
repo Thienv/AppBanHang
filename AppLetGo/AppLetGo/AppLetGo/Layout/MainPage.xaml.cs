@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AppLetGo.API;
-using AppLetGo.Layout;
-using AppLetGo.Service;
 using AppLetGo.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -67,9 +63,9 @@ namespace AppLetGo
         //}
         private void btnNew_Clicked(object sender, EventArgs e)
         {
-
-            Navigation.PushAsync(new PageThemHang());
-            
+            PageThemHang p = new PageThemHang();
+            Navigation.PushAsync(p);
+            p.vm = (BindingContext as LoaiHoaViewModel).HoaList;
         }
         private void btnThanhtoan_Clicked(object sender, EventArgs e)
         {
