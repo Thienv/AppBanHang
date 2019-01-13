@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AppLetGo.API;
+using AppLetGo.Service;
 using AppLetGo.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -36,31 +37,7 @@ namespace AppLetGo
                 MyListView.ItemsSource = vm.HoaTheoLoai.Where(i => i.Tenhoa.ToLower().Contains(e.NewTextValue.ToLower()));
             MyListView.EndRefresh();
         }
-
-        
-
        
-
-        
-
-        //private async void btnQRCode_Clicked(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        IQrScanningService scanner = DependencyService.Get<IQrScanningService>();
-        //        var result = await scanner.ScanAsync();
-        //        if (result != null)
-        //        {
-        //            //txtBarcode.Text = result;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw;
-        //    }
-
-        //}
         private void btnNew_Clicked(object sender, EventArgs e)
         {
             PageThemHang p = new PageThemHang();
@@ -74,6 +51,46 @@ namespace AppLetGo
             Device.BeginInvokeOnMainThread(async () => {
                 var Items = await databaseservice.RefreshDataAsync();
             });
+        }
+
+        private async void BtnScan_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var scanner = DependencyService.Get<IQrScanningService1>();
+                var result = await scanner.ScanAsync();
+                if (result != null)
+                {
+                    txtBarcode.Text = result;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var scanner = DependencyService.Get<IQrScanningService1>();
+                //var result = await scanner.ScanAsync();
+                //if (result != null)
+                //{
+                //    txtBarcode.Text = result;
+                //}
+                var scanResult = await scanner.ScanAsync();
+                if (scanResult != null)
+                { txtBarcode.Text=  scanResult; }
+                else { txtBarcode.Text = null; }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AppLetGo.Service
 {
-    public interface IQrScanningService
+    public interface IQrScanningService1
     {
         Task<string> ScanAsync();
     }

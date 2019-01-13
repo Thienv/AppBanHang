@@ -1,14 +1,22 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using AppLetGo.Service;
-using ZXing.Mobile;
 using Xamarin.Forms;
-using QR_Code_Scanner.Droid.Services;
+using ZXing.Mobile;
 
-[assembly: Dependency(typeof(QrScanningService))]
-
-namespace QR_Code_Scanner.Droid.Services
+[assembly: Dependency(typeof(AppLetGo.Droid.Service.QrScanningService1))]
+namespace AppLetGo.Droid.Service
 {
-    public class QrScanningService : IQrScanningService
+    class QrScanningService1 : IQrScanningService1
     {
         public async Task<string> ScanAsync()
         {
