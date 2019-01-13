@@ -76,12 +76,7 @@ namespace AppLetGo.ViewModels
             HoaTheoLoai = HoaList;
         }
 
-        private void Load()
-        {
-            //temp = new ObservableCollection<Hoa>();
-            //temp = HoaList;
-            HoaTheoLoai = HoaList;
-        }
+        
         public ObservableCollection<Hoa> HoaTheoLoai
         {
             get { return _hoaTheoLoai; }
