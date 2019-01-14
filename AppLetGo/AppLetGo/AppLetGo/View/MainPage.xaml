@@ -17,8 +17,6 @@
                         SelectedItem="{Binding LoaihoaChon, Mode=TwoWay}" ItemDisplayBinding="{Binding Tenloai}" Title="Tất cả hàng"/>
                 <SearchBar x:Name="mySearchBar"                           
                            TextChanged="mySearchBar_TextChanged_1" Placeholder="Nhập tên, mã để tìm hàng"/>
-                <Entry x:Name="txtBarcode"  
-               Placeholder="Text Do scan"/>
                 <ListView ItemsSource="{Binding  HoaTheoLoai, Mode=TwoWay}" x:Name="MyListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -26,8 +24,6 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Thanh toán" Clicked="btnThanhtoan_Clicked"  Command="{Binding }"/>
-                <Button Text="asdf" Clicked="Button_Clicked"/>
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
@@ -38,5 +34,6 @@
     <TabbedPage.ToolbarItems>
         <ToolbarItem x:Name="btnScan" Text="btnScan" Icon="qrcode.png" Clicked="BtnScan_Clicked"/>
         <ToolbarItem x:Name ="New" Text="New" Icon="add.png" Clicked="btnNew_Clicked"/>
+        <ToolbarItem x:Name="thanhtoan" Text="Thanh toán" Icon="thanhtoan.png" Clicked="Thanhtoan_Clicked"/>
     </TabbedPage.ToolbarItems>
 </TabbedPage>

@@ -22,19 +22,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Layout\OrderPage.xaml">
+    <EmbeddedResource Update="View\OrderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Layout\PageThemHang.xaml">
+    <EmbeddedResource Update="View\PageThemHang.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Layout\PageThanhToan.xaml">
+    <EmbeddedResource Update="View\PageThanhToan.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Layout\ReportPage.xaml">
+    <EmbeddedResource Update="View\PageThemLoai.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Layout\SettingPage.xaml">
+    <EmbeddedResource Update="View\ReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\SettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

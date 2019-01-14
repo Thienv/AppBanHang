@@ -17,7 +17,7 @@ namespace AppLetGo.ViewModels
         private ObservableCollection<Hoa> _hoaTheoLoai;
         private ObservableCollection<Hoa> temp = new ObservableCollection<Hoa>();
         
-        //public ICommand AddLoaiHoa { get; private set; }
+        
 
         public LoaiHoaViewModel()
         {
@@ -69,6 +69,12 @@ namespace AppLetGo.ViewModels
 
 
         }
+
+        //public Boolean IsIdExist(int id)
+        //{
+        //    if(LoaiHoaList.)
+        //    {}
+        //}
         public void Insert(Hoa h)
         {
             
@@ -150,13 +156,7 @@ namespace AppLetGo.ViewModels
                 OnPropertyChanged();
             }
         }
-        //private bool CanExe()
-        //{
-        //    if (Loaihoa == null || Loaihoa.Maloai == 0)
-        //        return false;
-        //    else
-        //        return true;
-        //}
+       
     }
 }
 
